@@ -13,8 +13,32 @@ mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-const Fruit = require("./models/fruit.js");
+const Workout = require("./models/workout.js");
 
+const isSignedIn = require('./middleware/is-signed-in.js');
+const passUserToView = require('./middleware/pass-user-to-view.js');
+const authController = require('./controllers/auth.js');
+const workoutsController = require('./controllers/workouts');
+
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
+app.use('/auth', authController);
+app.use('/workouts', isSignedIn, workoutsController);
+app.use(passUserToView);
+
+app.get('/', (req, res) => {
+    res.render('index.ejs', {
+      user: req.session.user,
+    });
+  });
+
+  
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
