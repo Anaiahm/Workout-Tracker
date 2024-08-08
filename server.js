@@ -36,7 +36,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passUserToView);
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', {
+    res.render('index.ejs', 
+        {
       user: req.session.user,
     });
   });
@@ -44,8 +45,8 @@ app.get('/', (req, res) => {
   app.get("/workouts", async (req, res) => {
     const allWorkouts = await Workout.find();
     console.log(allWorkouts);
-    res.send("Welcome to the index page!");
-  });
+    res.render("workouts/index.ejs", { Workouts: allWorkouts });
+});
 
   app.get("/workouts/new", (req, res) => {
     res.render("workouts/new.ejs");
@@ -59,7 +60,7 @@ app.get('/', (req, res) => {
       }
       req.body.owner = req.session.user._id;
       await Workout.create(req.body);
-      res.redirect("/workouts");     //Edit to redirecct to user landing page
+      res.redirect("/workouts");    
     });
 
 

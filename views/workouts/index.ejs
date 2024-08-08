@@ -9,3 +9,12 @@
     <h1>Here's all your Workouts</h1>
   </body>
 </html>
+
+<body>
+  <h1></h1>
+  <ul>
+    <% workouts.forEach(workout => { %>
+      <li><%= workout.date %></li>
+    <% }); %>
+  </ul>
+</body>
