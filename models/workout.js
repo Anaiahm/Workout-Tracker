@@ -17,6 +17,10 @@ const workoutSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 0,
+    },
+     drankWater: {
+            type: Boolean,
+            required: false,
       },
     owner: {
         type: mongoose.Schema.Types.ObjectId,

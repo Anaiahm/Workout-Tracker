@@ -3,4 +3,6 @@ const router = express.Router();
 
 const Workout = require('../models/workout');
 
-module.exports = router;mkdir 
+module.exports = router;
+
+// app.get("/workouts", async (req, res) => {};
