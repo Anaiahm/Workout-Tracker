@@ -53,9 +53,8 @@ app.get('/', (req, res) => {
   });
 
   app.get("/workouts/:workoutId", (req, res) => {
-    res.send(
-      `This route renders the show page for workout id: ${req.params.workoutId}!`
-    );
+    const foundWorkout = await Workout.findById(req.params.workoutId);
+    res.render("workouts/show.ejs", { workout: foundWorkout });
   });
   
 

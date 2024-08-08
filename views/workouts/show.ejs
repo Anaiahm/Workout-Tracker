@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= workout.date %></title> 
+  </head>
+  <body>
+    <h1><%= workout.date %></h1> 
+    <p>workout.exercises</p>
+    <p>workout.time</p>
+    <p>workout.caloriesBurned/p>
+    <% if (workout.drankWater) { %>
+        <p>Great Job, You finished your water this workout!</p>
+      <% } else { %>
+        <p>You need to drink more water</p>
+      <% } %>
+  </body>
+  <a href="/workouts/">Back</a>
+
+</html>
