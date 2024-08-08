@@ -14,7 +14,7 @@
   <h1></h1>
   <ul>
     <% workouts.forEach(workout => { %>
-      <li><%= workout.date %></li>
+      <li><a href="/workouts/<%= workout._id %>"><%= workout.date %></a></li>
     <% }); %>
   </ul>
 </body>

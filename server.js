@@ -52,6 +52,13 @@ app.get('/', (req, res) => {
     res.render("workouts/new.ejs");
   });
 
+  app.get("/workouts/:workoutId", (req, res) => {
+    res.send(
+      `This route renders the show page for workout id: ${req.params.workoutId}!`
+    );
+  });
+  
+
   app.post("/workouts", async (req, res) => {
     if (req.body.drankWater === "on") {
         req.body.drankWater = true;
