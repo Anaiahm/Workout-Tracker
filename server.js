@@ -32,6 +32,7 @@ app.use(
 
 app.use('/auth', authController);
 app.use('/workouts', isSignedIn, workoutsController);
+app.use(express.urlencoded({ extended: false }));
 app.use(passUserToView);
 
 app.get('/', (req, res) => {
@@ -40,9 +41,26 @@ app.get('/', (req, res) => {
     });
   });
 
+  app.get("/workouts", async (req, res) => {
+    const allWorkouts = await Workout.find();
+    console.log(allWorkouts);
+    res.send("Welcome to the index page!");
+  });
+
   app.get("/workouts/new", (req, res) => {
     res.render("workouts/new.ejs");
   });
+
+  app.post("/workouts", async (req, res) => {
+    if (req.body.drankWater === "on") {
+        req.body.drankWater = true;
+      } else {
+        req.body.drankWater = false;
+      }
+      req.body.owner = req.session.user._id;
+      await Workout.create(req.body);
+      res.redirect("/workouts");     //Edit to redirecct to user landing page
+    });
 
 
 app.listen(3000, () => {
