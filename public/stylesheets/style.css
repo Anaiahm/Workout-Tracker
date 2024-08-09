@@ -29,8 +29,14 @@ body {
     padding: 10px;
   }
   
-  .sign-in {
-    color: #f278a1;
+  .link-container {
+    display: flex;
+    gap: 150px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #ff7196;
     font-size: 2.6em;
   }
 

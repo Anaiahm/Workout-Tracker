@@ -52,6 +52,16 @@ app.get('/', (req, res) => {
     });
   });
 
+//   app.get('/users', async (req, res) => {
+//     const allUsers = await User.find();
+//     console.log(allUsers);
+//     res.render("users/index.ejs", { users: allUsers });
+//   });
+
+  app.get("/users", (req, res) => {
+    res.render("users/index.ejs");
+  });
+
   app.get("/workouts", async (req, res) => {
     const allWorkouts = await Workout.find();
     console.log(allWorkouts);

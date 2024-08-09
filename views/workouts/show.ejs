@@ -9,9 +9,9 @@
   <body>
     <div class="workout-details">
         <h1><%= workout.date %></h1> 
-         <p>workout.exercises</p>
-         <p>workout.time</p>
-         <p>workout.caloriesBurned/p>
+         <p><%=workout.exercises%></p>
+         <p><%=workout.time%></p>
+         <p><%=workout.caloriesBurned%></p>
          <% if (workout.drankWater) { %>
             <p>Great Job, You finished your water this workout!</p>
              <% } else { %>
