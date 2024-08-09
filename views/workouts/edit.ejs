@@ -17,11 +17,14 @@
       <label for="caloriesBurned">Calories Burned:</label>
       <input type="number" name="caloriesBurned" id="caloriesBurned" step="1" min="18" value="<%= workout.caloriesBurned %> />
   
-      <label for="drankWater">Did you drink water?</label>
-      <input type="checkbox" name="drankWater" id="drankWater" <% if (workout.drankWater) { %>checked<% } %> />
-  
+      <div class="checkbox-div">
+        <label for="drankWater">Did you drink water?</label>
+        <input type="checkbox" name="drankWater" id="drankWater" <% if (workout.drankWater) { %>checked<% } %> />
+      </div>
         <button type="submit">Update Workout</button>
       </form>
-    <a href="/workouts">Back</a>
+    <a class="fruits-index-link" href="/workouts">
+        <div class="index-link-text">Back</div>
+    </a>
   </body>
   

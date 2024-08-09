@@ -3,23 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= workout.date %></title> 
   </head>
   <body>
-    <h1><%= workout.date %></h1> 
-    <p>workout.exercises</p>
-    <p>workout.time</p>
-    <p>workout.caloriesBurned/p>
-    <% if (workout.drankWater) { %>
-        <p>Great Job, You finished your water this workout!</p>
-      <% } else { %>
-        <p>You need to drink more water</p>
-      <% } %>
-    <form action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete <%= workout.name %></button>
-    </form>
-    <a href="/workouts/<%= workout._id %>/edit">Edit <%= workout.name %></a>
+    <div class="workout-details">
+        <h1><%= workout.date %></h1> 
+         <p>workout.exercises</p>
+         <p>workout.time</p>
+         <p>workout.caloriesBurned/p>
+         <% if (workout.drankWater) { %>
+            <p>Great Job, You finished your water this workout!</p>
+             <% } else { %>
+            <p>You need to drink more water</p>
+         <% } %>
+         <div class="workout-actions">
+            <form class="delete-form" action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
+                <button class="delete-button" type="submit">Delete <%= workout.name %></button>
+            </form>
+            <a class="edit-link" href="/workouts/<%= workout._id %>/edit">
+                <div class="edit-text">
+                    Edit <%= workout.name %>
+                </div>
+            </a>
+         </div>
+    </div>
+    <a class="fruits-index-link" href="/workouts">
+              <div class="index-link-text">Back</div>
+     </a>
   </body>
-  <a href="/workouts/">Back</a>
+  
 
 </html>

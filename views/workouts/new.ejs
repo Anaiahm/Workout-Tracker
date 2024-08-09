@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>New Workout</title>
   </head>
   <body>
@@ -35,9 +36,10 @@
       <label for="caloriesBurned">Calories Burned:</label>
       <input type="number" name="caloriesBurned" id="caloriesBurned" step="1" min="18"/>
   
-      <label for="drankWater">Did you drink water?</label>
-      <input type="checkbox" name="drankWater" id="drankWater" />
-  
+      <div class="checkbox-div">
+        <label for="drankWater">Did you drink water?</label>
+        <input type="checkbox" name="drankWater" id="drankWater" />
+    </div>
       <button type="submit">Add Workout</button>
     </form>
 
