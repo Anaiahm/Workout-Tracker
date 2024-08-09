@@ -7,15 +7,21 @@
     <title>All Workouts</title>
   </head>
   <body>
-    <h1>Here's all your Workouts</h1>
+    <h1>All Workouts</h1>
   </body>
 </html>
 
 <body>
-  <h1></h1>
+  <div class="index-header-div">
+  <h1>Here's all your Workouts</h1>
+  </div>
   <ul>
     <% workouts.forEach(workout => { %>
-      <li><a href="/workouts/<%= workout._id %>"><%= workout.date %></a></li>
+    <li>
+        <a class="fruit-cards" href="/workouts/<%=workout._id%>">
+          <%= workout.date %>
+        </a>
+    </li>
     <% }); %>
   </ul>
 </body>

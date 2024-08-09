@@ -28,7 +28,7 @@ body {
     height: 30%;
   }
 
-  .fruits-index-link {
+  .workouts-index-link {
     text-decoration: none;
   }
   
@@ -95,7 +95,7 @@ body {
     background-color: #2d4d3a;
   }
   
-  .fruit-actions {
+  .workout-actions {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -159,6 +159,71 @@ body {
   .edit-text:active {
     background-color: #2d4d3a;
     background-color: rgb(217, 108, 78);
+  }
+  
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .workout-cards {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+    width: 40px;
+    height: 70px;
+    background-color: white;
+    margin: 10px 15px;
+    padding: 30px 50px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    border: 2.5px solid #ffbd59;
+  }
+  
+  .workout-cards:hover {
+    border: 4px solid #f47b5b;
+  }
+  
+  .workout-cards:active {
+    background-color: #a4cf5f67;
+    border: 2.5px solid #ffbd59;
+    color: gray;
+  }
+  
+  .index-header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+  }
+  
+  .add-workout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    text-decoration: none;
+    width: 6em;
+    text-transform: uppercase;
+    background-color: #769642;
+    border-radius: 30px;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  img {
+    height: 100%;
+    margin: 20px 0 0 0;
   }
   
   
