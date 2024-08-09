@@ -15,6 +15,9 @@
       <% } else { %>
         <p>You need to drink more water</p>
       <% } %>
+    <form action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= workout.name %></button>
+    </form>
   </body>
   <a href="/workouts/">Back</a>
 

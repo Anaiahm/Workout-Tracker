@@ -3,6 +3,8 @@ dotenv.config();
 const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
+const morgan = require("morgan");
 const app = express();
 
 app.get("/", async (req, res) => {
@@ -34,6 +36,9 @@ app.use('/auth', authController);
 app.use('/workouts', isSignedIn, workoutsController);
 app.use(express.urlencoded({ extended: false }));
 app.use(passUserToView);
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
+
 
 app.get('/', (req, res) => {
     res.render('index.ejs', 
@@ -52,7 +57,7 @@ app.get('/', (req, res) => {
     res.render("workouts/new.ejs");
   });
 
-  app.get("/workouts/:workoutId", (req, res) => {
+  app.get("/workouts/:workoutId", async (req, res) => {
     const foundWorkout = await Workout.findById(req.params.workoutId);
     res.render("workouts/show.ejs", { workout: foundWorkout });
   });
@@ -69,6 +74,11 @@ app.get('/', (req, res) => {
       res.redirect("/workouts");    
     });
 
+    app.delete("/workouts/:workoutId", async (req, res) => {
+        await Workout.findByIdAndDelete(req.params.workoutId);
+        res.redirect("/workouts");
+      });
+      
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
