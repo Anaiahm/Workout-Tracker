@@ -34,9 +34,10 @@ app.use(
     })
   );
 
+app.use(express.urlencoded({ extended: false }));
 app.use('/auth', authController);
 // app.use('/workouts', isSignedIn, workoutsController);
-app.use(express.urlencoded({ extended: false }));
+
 app.use(passUserToView);
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
@@ -54,7 +55,7 @@ app.get('/', (req, res) => {
   app.get("/workouts", async (req, res) => {
     const allWorkouts = await Workout.find();
     console.log(allWorkouts);
-    res.render("workouts/index.ejs", { Workouts: allWorkouts });
+    res.render("workouts/index.ejs", { workouts: allWorkouts });
 });
 
   app.get("/workouts/new", (req, res) => {
