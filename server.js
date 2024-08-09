@@ -94,12 +94,32 @@ app.get('/', (req, res) => {
         res.redirect("/workouts");
       });
       
-    app.get("/workouts/:workoutId/edit", async (req, res) => {
-        const foundWorkout = await Workout.findById(req.params.workoutId);
-        res.render("workouts/edit.ejs", {
-            workout: foundWorkout,
-          });
+      app.get("/workouts/:workoutId/edit", async (req, res) => {
+        try {
+            const foundWorkout = await Workout.findById(req.params.workoutId);
+            const exercises = [
+                'Push-ups',
+                'Pull-ups',
+                'Running',
+                'Cycling',
+                'Swimming',
+                'Yoga',
+                'BJJ',
+                'Basketball',
+                'Cheerleading'
+            ]; 
+            const selectedExercises = foundWorkout.exercises || []; 
+            res.render("workouts/edit.ejs", { 
+                workout: foundWorkout,
+                exercises: exercises,
+                selectedExercises: selectedExercises
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Server Error");
+        }
     });
+    
 
     app.put("/workouts/:workoutId", async (req, res) => {
         if (req.body.drankWater === "on") {
