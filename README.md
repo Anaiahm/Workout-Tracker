@@ -7,7 +7,7 @@
   Insert Screenshots Here!
 
   ## 🚀 Get Started
-  Ready to start your fitness journey? Check out SweatScribe now! 🌟🧘🏾‍♀️
+  Ready to start your fitness journey? Check out SweatScribe now! 🌟🧘🏾‍♀️ <br>
   https://sweat-scribe-3fc4d84a62af.herokuapp.com/
 
   ## 🖥️ Technologies Used
@@ -25,7 +25,7 @@
   ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
   ## 🔮 Future Plans
- - **Detailed Water Intake Logging**
+- **Track Your Sips**
   - **Feature**: Allow users to log water intake by specifying the amount consumed (e.g., 250 ml, 500 ml).
   - **Benefit**: Helps users track hydration more accurately and meet daily water consumption goals.
 
