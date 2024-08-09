@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap");
 body {
-    background: #fff8ed;
+    background: linear-gradient(90deg, #fff7ad, #ffa9f9);
     font-family: "DM Sans", sans-serif;
     display: flex;
     flex-direction: column;
@@ -29,6 +29,11 @@ body {
     padding: 10px;
   }
   
+  .sign-in {
+    color: #f278a1;
+    font-size: 2.6em;
+  }
+
   .workout-pic1 {
     height: 30%;
   }

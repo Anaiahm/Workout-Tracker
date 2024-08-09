@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const path = require("path");
+const port = process.env.PORT ? process.env.PORT : '3000';
 const app = express();
 
 app.get("/", async (req, res) => {
@@ -41,6 +42,7 @@ app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(isSignedIn);
+
 
 app.get('/', (req, res) => {
     res.render('index.ejs', 
@@ -99,6 +101,6 @@ app.get('/', (req, res) => {
         res.redirect(`/workouts/${req.params.workoutId}`);
       });
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000");
-});
+app.listen(port, () => {
+    console.log(`The express app is ready on port ${port}!`);
+  });
