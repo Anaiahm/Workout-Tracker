@@ -25,6 +25,7 @@ const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const authController = require('./controllers/auth.js');
 const workoutsController = require('./controllers/workouts.js');
+const userRoutes = require('./models/user');
 
 app.use(
     session({
@@ -43,6 +44,7 @@ app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(isSignedIn);
+app.use('/Users', userRoutes);
 
 
 app.get('/', (req, res) => {

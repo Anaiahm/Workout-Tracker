@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
+const isSignedIn = require('../middleware/is-signed-in.js');
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
@@ -72,12 +73,28 @@ router.post('/sign-in', async (req, res) => {
       _id: userInDatabase._id
     };
 
-    res.redirect('/Workouts');
+    res.redirect(`/Users/${userInDatabase._id}`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
   }
 });
 
+router.get('/Users/:userId', isSignedIn, async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+
+        res.render("Users.ejs", { user: user });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;
 
+// /${userInDatabase._id}

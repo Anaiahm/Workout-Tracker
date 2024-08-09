@@ -10,7 +10,7 @@ const workoutSchema = new mongoose.Schema({
         min: 0,
       },
     exercises:{
-        type: String,
+        type: [String],
         required: true,
       },
     caloriesBurned: {
