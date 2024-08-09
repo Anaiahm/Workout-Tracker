@@ -23,7 +23,7 @@ const Workout = require("./models/workout.js");
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const authController = require('./controllers/auth.js');
-const workoutsController = require('./controllers/workouts');
+const workoutsController = require('./controllers/workouts.js');
 
 app.use(
     session({
@@ -34,13 +34,13 @@ app.use(
   );
 
 app.use('/auth', authController);
-app.use('/workouts', isSignedIn, workoutsController);
+// app.use('/workouts', isSignedIn, workoutsController);
 app.use(express.urlencoded({ extended: false }));
 app.use(passUserToView);
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(isSignedIn);
 
 app.get('/', (req, res) => {
     res.render('index.ejs', 

@@ -10,8 +10,13 @@ body {
   }
   
   h1 {
-    color: #769642;
-    font-size: 3.6em;
+    color: #ff7196;
+    font-size: 5.6em;
+  }
+
+  p {
+    color: #f278a1;
+    font-size: 2.6em;
   }
   
   footer {
