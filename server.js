@@ -86,6 +86,17 @@ app.get('/', (req, res) => {
           });
     });
 
+    app.put("/workouts/:workoutId", async (req, res) => {
+        if (req.body.drankWater === "on") {
+          req.body.drankWater = true;
+        } else {
+          req.body.drankWater = false;
+        }
+        
+        await Workout.findByIdAndUpdate(req.params.workoutId, req.body);
+        res.redirect(`/workouts/${req.params.workoutId}`);
+      });
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
