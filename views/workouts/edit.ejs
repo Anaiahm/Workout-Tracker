@@ -1,0 +1,27 @@
+<body>
+    <h1>Edit <%= workout.name %></h1>
+    <form action="/workouts/<%=workout._id%>?_method=PUT" method="POST">
+        <label for="date">Date (XX/XX/XX):</label>
+      <input type="text" name="date" id="date" value="<%= workout.date/>
+
+      <label for="excercises">Excercises (Select all that apply):</label>
+      <select name="exercises" id="exercises" multiple>
+        <% exercises.forEach(exercise => { %>
+            <option value="<%= exercise %>" <% if (selectedExercises.includes(exercise)) { %> selected <% } %>><%= exercise %></option>
+        <% }); %>
+      </select>
+    
+      <label for="time">Time (mins):</label>
+      <input type="number" name="time" id="time" step="0.1" min="18" value="<%= workout.time %> />
+
+      <label for="caloriesBurned">Calories Burned:</label>
+      <input type="number" name="caloriesBurned" id="caloriesBurned" step="1" min="18" value="<%= workout.caloriesBurned %> />
+  
+      <label for="drankWater">Did you drink water?</label>
+      <input type="checkbox" name="drankWater" id="drankWater" <% if (workout.drankWater) { %>checked<% } %> />
+  
+        <button type="submit">Update Workout</button>
+      </form>
+    <a href="/workouts">Back</a>
+  </body>
+  

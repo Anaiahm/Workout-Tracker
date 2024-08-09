@@ -18,6 +18,7 @@
     <form action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= workout.name %></button>
     </form>
+    <a href="/workouts/<%= workout._id %>/edit">Edit <%= workout.name %></a>
   </body>
   <a href="/workouts/">Back</a>
 

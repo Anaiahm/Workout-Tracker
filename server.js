@@ -79,6 +79,12 @@ app.get('/', (req, res) => {
         res.redirect("/workouts");
       });
       
+    app.get("/workouts/:workoutId/edit", async (req, res) => {
+        const foundWorkout = await Workout.findById(req.params.workoutId);
+        res.render("workouts/edit.ejs", {
+            workout: foundWorkout,
+          });
+    });
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
