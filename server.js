@@ -8,6 +8,10 @@ const morgan = require("morgan");
 const path = require("path");
 const port = process.env.PORT ? process.env.PORT : '3000';
 const app = express();
+app.set('views', path.join(__dirname, 'views'));
+
+// Set the view engine (e.g., EJS)
+app.set('view engine', 'ejs');
 
 app.get("/", async (req, res) => {
     res.render("index.ejs");
