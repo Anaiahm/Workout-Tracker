@@ -96,7 +96,7 @@ router.get('/users/:userId', isSignedIn, async (req, res) => {
         }
 
         // Render the user's page and pass the necessary data
-        res.render('users/index', { user: user, username: req.session.user.username });
+        res.render('Users/index', { user: user, username: req.session.user.username });
     } catch (error) {
         console.log(error);
         res.status(500).send('Server Error');

@@ -56,7 +56,7 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 app.get("/users", (req, res) => {
     console.log(req.session.user);
-    res.render("users/index.ejs", { username: req.session.user ? req.session.user.username : 'Guest' });;
+    res.render("Users/index.ejs", { username: req.session.user ? req.session.user.username : 'Guest' });;
 });
 
 app.get("/workouts", async (req, res) => {
