@@ -75,7 +75,7 @@ router.post('/sign-in', async (req, res) => {
     };
 
     // Redirect to the user's page
-    res.redirect("users");
+    res.redirect("Users");
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -106,7 +106,7 @@ router.get('/users/:userId', isSignedIn, async (req, res) => {
 router.get('/users', async (req, res) => {
     try {
         const allUsers = await User.find();
-        res.render("users/index.ejs", { users: allUsers });
+        res.render("Users/index.ejs", { users: allUsers });
     } catch (error) {
         console.error(error);
         res.status(500).send("Server Error");
