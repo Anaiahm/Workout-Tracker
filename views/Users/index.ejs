@@ -7,12 +7,27 @@
     <title>All Workouts</title>
   </head>
   <body>
-  <div class="index-header-div">
-    <h1>Welcome!</h1>
-    <p>Let's get started</p>
-    <a href="/workouts">Past Workouts</a>
-    <a href="/workouts/new">Add Workout</a>
-    <a href="/auth/sign-out">Log Out</a>
+  <div class="usercontainer">
+    <div class="userimage-container">
+      <img
+      src="https://imgur.com/BSeopbS.png"
+      alt="app logo"
+      width="300"
+      />
+      <img
+      src="https://imgur.com/ULIid3o.png"
+      alt="user logo"
+      width="300"
+      />
+    </div>
+    <div class="usercontent">
+      <h1 class="userh">Welcome <%= username %> !</h1>
+      <p class="userp">Let's get started</p>
+      <a class="userlink" href="/workouts">Past Workouts</a>
+      <a class="userlink" href="/workouts/new">Add Workout</a>
+      <a class="userlink" href="/auth/sign-out">Log Out</a>
+    </div>
   </div>
 </body>
 </html>
+

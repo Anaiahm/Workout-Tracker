@@ -7,7 +7,7 @@ const workoutSchema = new mongoose.Schema({
     time: {
         type: Number,
         required: true,
-        min: 0,
+        min: 1,
       },
     exercises:{
         type: [String],
@@ -16,7 +16,7 @@ const workoutSchema = new mongoose.Schema({
     caloriesBurned: {
         type: String,
         required: true,
-        min: 0,
+        min: 1,
     },
      drankWater: {
             type: Boolean,

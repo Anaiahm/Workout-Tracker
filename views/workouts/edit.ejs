@@ -1,4 +1,13 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Edit Workout</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar') %>
     <h1>Edit <%= workout.name %></h1>
     <form action="/workouts/<%=workout._id%>?_method=PUT" method="POST">
         <label for="date">Date (XX/XX/XX):</label>
@@ -12,10 +21,10 @@
       </select>
     
       <label for="time">Time (mins):</label>
-      <input type="number" name="time" id="time" step="0.1" min="18" value="<%= workout.time %>" />
+      <input type="number" name="time" id="time" step="0.1" min="1" value="<%= workout.time %>" />
 
       <label for="caloriesBurned">Calories Burned:</label>
-      <input type="number" name="caloriesBurned" id="caloriesBurned" step="1" min="18" value="<%= workout.caloriesBurned %>" />
+      <input type="number" name="caloriesBurned" id="caloriesBurned" step="1" min="1" value="<%= workout.caloriesBurned %>" />
   
       <div class="checkbox-div">
         <label for="drankWater">Did you drink water?</label>
@@ -27,4 +36,5 @@
         <div class="index-link-text">Back</div>
     </a>
   </body>
+</html>
   

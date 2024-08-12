@@ -7,6 +7,7 @@
     <title><%= workout.date %></title> 
   </head>
   <body>
+    <%- include('../partials/_navbar') %>
     <div class="workout-details">
         <h1><%= workout.date %></h1> 
          <p><%=workout.exercises%></p>
@@ -18,14 +19,14 @@
             <p>You need to drink more water</p>
          <% } %>
          <div class="workout-actions">
-            <form class="delete-form" action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
-                <button class="delete-button" type="submit">Delete <%= workout.name %></button>
-            </form>
-            <a class="edit-link" href="/workouts/<%= workout._id %>/edit">
-                <div class="edit-text">
-                    Edit <%= workout.name %>
-                </div>
-            </a>
+             <a class="edit-link" href="/workouts/<%= workout._id %>/edit">
+                 <div class="edit-text">
+                     Edit <%= workout.name %>
+                    </div>
+                </a>
+                <form class="delete-form" action="/workouts/<%=workout._id%>?_method=DELETE" method="POST">
+                    <button class="delete-button" type="submit">Delete <%= workout.name %></button>
+                </form>
          </div>
     </div>
     <a class="fruits-index-link" href="/workouts">

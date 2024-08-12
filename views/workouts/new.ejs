@@ -7,12 +7,8 @@
     <title>New Workout</title>
   </head>
   <body>
+    <%- include('../partials/_navbar') %>
     <h1>New Workout</h1>
-  </body>
-</html>
-
-<body>
-    <h1></h1>
     <form action="/workouts" method="POST">
       <label for="date">Date (XX/XX/XX):</label>
       <input type="text" name="date" id="date" />
@@ -43,9 +39,6 @@
       <button type="submit">Add Workout</button>
     </form>
 
-    <!-- Will need to move to user landing page -->
-    <a href="/workouts/">Back</a>
-    <!-- Will need to move to user landing page -->
-
   </body>
+  </html>
   

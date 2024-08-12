@@ -7,18 +7,33 @@
     <title>All Workouts</title>
   </head>
   <body>
-  <%- include('../partials/_navbar') %>
-  <div class="index-header-div">
-    <h1>Here's all your Workouts</h1>
-  </div>
-  <ul>
+    <%- include('../partials/_navbar') %>
+    <div class="usercontainer">
+    <div class="userimage-container">
+      <img
+      src="https://imgur.com/BSeopbS.png"
+      alt="app logo"
+      width="300"
+      />
+      <img
+      src="https://imgur.com/ULIid3o.png"
+      alt="user logo"
+      width="300"
+      />
+    </div>
+  <div class="usercontent">
+    <h1 class="userh">My Workouts</h1>
+  <p class="userp">Here are all your past workouts</p>
+  <ul class="workout-list">
     <% workouts.forEach(workout => { %>
-    <li>
-        <a class="workout-cards" href="/workouts/<%=workout._id%>">
+    <li class="workout-item">
+        <a class="userlink" href="/workouts/<%=workout._id%>">
           <%= workout.date %>
         </a>
     </li>
     <% }); %>
   </ul>
+  </div>
+  </div>
 </body>
 </html>
